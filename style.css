@@ -1,0 +1,358 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Earthy Dark Palette */
+    --bg-deep: #1a1816;        /* Deep obsidian clay */
+    --bg-surface: #24211e;     /* Muted earth brown */
+    --text-main: #e8e2d9;      /* Warm sand / off-white */
+    --text-muted: #a69f95;     /* Muted stone grey */
+    --accent: #d67d5c;         /* Soft terracotta */
+    --accent-glow: rgba(214, 125, 92, 0.2);
+    --border: #332f2b;         /* Dark soil border */
+    
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-deep);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    
+    /* The Gradient: We use a large scale and animate it based on scroll */
+    background: linear-gradient(
+        to bottom,
+        #1a1816 0%,    /* Obsidian Clay */
+        #24211e 100%   /* Muted Earth */
+    );
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation - Using Flexbox */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(26, 24, 22, 0.85); /* Blurred dark clay */
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: -0.05em;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #24211e 0%, #1a1816 100%);
+}
+
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.7; /* Subtler integration for dark mode */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.04em;
+    color: var(--text-main);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    color: var(--text-muted);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 2px; /* Sharper, more modern edges */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: #e08e6f;
+    box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+/* Section Styling */
+.section {
+    padding: 120px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    text-align: center;
+    letter-spacing: -0.03em;
+}
+
+/* App Grid - Using CSS Grid */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.app-card {
+    padding: 3.5rem 2.5rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.app-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    background: #2c2925;
+}
+
+.app-card h3 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.app-card p {
+    color: var(--text-muted);
+}
+
+/* Project Demo - Items */
+
+.project-list {
+    position: relative;
+    /* We use a gradient background here that blends from transparent 
+       to a textured pattern to show 'progression' */
+    background-image: 
+        /* The Dot Grid */
+        radial-gradient(rgba(214, 125, 92, 0.15) 1px, transparent 1px),
+        /* A subtle horizontal 'scanline' texture */
+        linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+    background-size: 40px 40px, 100% 100%;
+    
+    /* This ensures the grid only appears as you get to the projects */
+    margin-top: 10vh;
+    padding-top: 10vh;
+    border-top: 1px solid rgba(214, 125, 92, 0.1);
+}
+
+.project-item {
+    /* Glassmorphism effect to let the grid peek through slightly */
+    background: rgba(36, 33, 30, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3.5rem;
+    border-radius: 4px;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-8px);
+    background: rgba(36, 33, 30, 0.8);
+}
+
+/* === BMS DEMO STYLES === */
+
+.demo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.controls-panel {
+    background-color: #2a2a2a;
+    padding: 15px 25px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: flex;
+    gap: 30px;
+    z-index: 10; /* Ensure controls are on top of the canvas */
+}
+
+.slider-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-group label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+#scene-container {
+    width: 100%;
+    flex-grow: 1; /* Make the scene take up the rest of the vertical space */
+}
+
+#scene-container canvas {
+    display: block; /* Fixes potential layout issues */
+}
+
+
+/* About Us - Flexbox for Layout */
+.about-bg {
+    background-color: var(--bg-surface);
+}
+
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.about-image {
+    flex: 1;
+    position: relative;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: -15px;
+    bottom: -15px;
+    border: 1px solid var(--accent);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.about-image img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+    filter: sepia(20%) contrast(1.1); /* Slight earthy tint */
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text .section-title {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+footer {
+    padding: 4rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: var(--bg-deep);
+    border-top: 1px solid var(--border);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-flex {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+    .nav-links {
+        display: none;
+    }
+}

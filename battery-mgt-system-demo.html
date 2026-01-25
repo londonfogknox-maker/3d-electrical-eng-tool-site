@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Visualizer | Kreutz Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body style="background-color: var(--bg-deep ); color: var(--text-main);">
+
+    <!-- 1. Navigation Bar (Consistent with Site) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">STUDIO<span>3D</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="section" style="padding-top: 120px;">
+        <div class="container">
+            
+            <!-- 2. Title of the Project -->
+            <header style="margin-bottom: 2rem;">
+                <h1 style="font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem; letter-spacing: -0.04em;">Obsidian Visualizer</h1>
+                
+                <!-- 3. Smaller Description -->
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px;">
+                    A procedural exploration of sound and light. This environment reacts to your input to create unique, organic 3D formations in real-time.
+                </p>
+            </header>
+
+            <!-- 4. Interaction Instructions -->
+            <div class="instructions" style="background: var(--bg-surface); border: 1px solid var(--border); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem; display: flex; gap: 2rem; align-items: center;">
+                <div style="color: var(--accent); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                    How to Interact:
+                </div>
+                <ul style="display: flex; list-style: none; gap: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+                    <li><strong style="color: var(--text-main);">Rotate:</strong> Left Click + Drag</li>
+                    <li><strong style="color: var(--text-main);">Zoom:</strong> Scroll Wheel</li>
+                    <li><strong style="color: var(--text-main);">Pan:</strong> Right Click + Drag</li>
+                    <li><strong style="color: var(--text-main);">Action:</strong> Press [Space] to randomize</li>
+                </ul>
+            </div>
+
+            <div class="demo-container">
+        <!-- The control panel for our sliders -->
+        <div class="controls-panel">
+            <h2>BMS Configuration</h2>
+            
+            <!-- Slider 1: Number of Modules -->
+            <div class="slider-group">
+                <label for="modules-slider">Modules per Pack: <span id="modules-value">5</span></label>
+                <input type="range" id="modules-slider" min="1" max="10" value="5">
+            </div>
+
+            <!-- Slider 2: Number of Cells -->
+            <div class="slider-group">
+                <label for="cells-slider">Cells per Module: <span id="cells-value">20</span></label>
+                <input type="range" id="cells-slider" min="4" max="100" value="20">
+            </div>
+
+            <!-- Slider 3: State of Charge (SoC) -->
+            <div class="slider-group">
+                <label for="soc-slider">Initial State of Charge (%): <span id="soc-value">80</span></label>
+                <input type="range" id="soc-slider" min="0" max="100" value="80">
+            </div>
+        </div>
+
+        <!-- The canvas where our Three.js scene will be rendered -->
+        <div id="scene-container"></div>
+    </div>
+
+    </main>
+
+    <!-- 6. Footer -->
+    <footer>
+        <p>&copy; 2026 Kreutz Studio. Built with Passion.</p>
+    </footer>
+
+    <!-- Load the External JavaScript File -->
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script> <!-- For camera control -->
+    <script src="bms-script.js"></script>
+        
+</body>
+</html>
