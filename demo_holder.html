@@ -5,19 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obsidian Visualizer | Kreutz Studio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body style="background-color: var(--bg-deep ); color: var(--text-main);">
 
-    <!-- 1. Navigation Bar (Consistent with Site) -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">STUDIO<span>3D</span></a>
+            <a href="index.html" class="logo">STUDIO<span>3D SHOWCASE</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="applications.html">Applications</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="applications.html">Demos</a></li>
             </ul>
         </div>
     </nav>
@@ -25,17 +21,15 @@
     <main class="section" style="padding-top: 120px;">
         <div class="container">
             
-            <!-- 2. Title of the Project -->
             <header style="margin-bottom: 2rem;">
                 <h1 style="font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem; letter-spacing: -0.04em;">Obsidian Visualizer</h1>
                 
-                <!-- 3. Smaller Description -->
                 <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px;">
                     A procedural exploration of sound and light. This environment reacts to your input to create unique, organic 3D formations in real-time.
                 </p>
             </header>
 
-            <!-- 4. Interaction Instructions -->
+            <!-- Interaction Instructions -->
             <div class="instructions" style="background: var(--bg-surface); border: 1px solid var(--border); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem; display: flex; gap: 2rem; align-items: center;">
                 <div style="color: var(--accent); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">
                     How to Interact:
@@ -48,7 +42,7 @@
                 </ul>
             </div>
 
-            <!-- 5. Three.js Scene Display (Placeholder) -->
+            <!-- Three.js Scene Display (Placeholder) -->
             <div id="demo-canvas-container" style="width: 100%; height: 600px; background: #000; border: 1px solid var(--border); border-radius: 4px; position: relative; overflow: hidden;">
                 <!-- This is where the Three.js renderer will live -->
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none;">
@@ -61,12 +55,13 @@
         </div>
     </main>
 
-    <!-- 6. Footer -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Kreutz Studio. Built with Passion.</p>
     </footer>
 
     <!-- Load the External JavaScript File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="demo-1.js"></script>
         
 </body>
